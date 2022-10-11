@@ -1,20 +1,58 @@
-.hero-page .hero-pic{
-    width: 70vh;
+
+body{
+   margin: 0px;
+   background-image: url("cover.jpg");
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   width: 100vw;
+   height: 100vh;
 }
+
+.hero-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    height: 100%;
+
+}
+
+.center-text{
+    margin: 0px;
+    padding: 0px;
+    font-size: 50px;
+}
+.hero-text h2{
+    font-weight: 300;
+    margin: 0px;
+    padding: 0px;
+}
+
 .top-bar{
-    background-color: lightslategray;
-    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin:0px;
-    z-index: 1; /*ignore*/
+    z-index: 1;
     position: sticky;
     top: 0;
+    
 }
 
 .name{
-    display: flex;
-    justify-content: left;
     padding: 20px;
+    margin: 0px;
+    font-family:'Courier New', Courier, monospace;
+    color: white;
 }
-body{
+.nav h2{
+    padding: 20px;
     margin:0px;
+    display: inline-flex;
+    font-family:'Courier New', Courier, monospace;
+    color: white;
 }
+
