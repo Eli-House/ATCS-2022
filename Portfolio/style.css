@@ -1,0 +1,20 @@
+.hero-page .hero-pic{
+    width: 70vh;
+}
+.top-bar{
+    background-color: lightslategray;
+    height: 8vh;
+    margin:0px;
+    z-index: 1; /*ignore*/
+    position: sticky;
+    top: 0;
+}
+
+.name{
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+}
+body{
+    margin:0px;
+}
