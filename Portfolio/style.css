@@ -1,15 +1,20 @@
-
-body{
-   margin: 0px;
-   background-image: url("cover.jpg");
-   background-position: center;
-   background-size: cover;
-   background-repeat: no-repeat;
-   width: 100vw;
-   height: 100vh;
+body {
+    margin: 0px;
+    background-image: url("cover.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
 }
 
-.hero-text{
+.grid{
+    display: grid;
+    grid-template-rows: 8% 92%;
+    height: 100vh;
+
+}
+.hero-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,39 +25,50 @@ body{
 
 }
 
-.center-text{
+.center-text {
     margin: 0px;
     padding: 0px;
     font-size: 50px;
 }
-.hero-text h2{
+
+.hero-text h2 {
     font-weight: 300;
     margin: 0px;
     padding: 0px;
 }
 
-.top-bar{
+.top-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin:0px;
+    margin: 0px;
     z-index: 1;
     position: sticky;
     top: 0;
+
+}
+
+.name {
+    padding: 20px;
+    margin: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
     
 }
 
-.name{
+.top-bar a{
+    text-decoration: none;
+}
+
+.nav h2 {
     padding: 20px;
     margin: 0px;
-    font-family:'Courier New', Courier, monospace;
-    color: white;
-}
-.nav h2{
-    padding: 20px;
-    margin:0px;
     display: inline-flex;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
+
+.nav a{
+    text-decoration: none;
+}

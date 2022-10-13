@@ -1,0 +1,52 @@
+body{
+    margin: 0px;
+}
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px;
+    z-index: 1;
+    position: sticky;
+    top: 0;
+
+}
+
+.top-bar a{
+    text-decoration: none;
+}
+
+.grid-top{
+    display: grid;
+    grid-template-rows: 100%;
+    height: 8vh;
+
+}
+.name {
+    padding: 20px;
+    margin: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(71, 71, 71);
+    text-decoration: none;
+}
+
+.nav h2 {
+    padding: 20px;
+    margin: 0px;
+    display: inline-flex;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(71, 71, 71);
+}
+
+.nav a{
+    text-decoration: none;
+}
+.information{
+    color: rgb(71, 71, 71);
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    margin: 45px;
+}
