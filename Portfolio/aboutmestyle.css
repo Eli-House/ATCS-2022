@@ -1,40 +1,29 @@
-body{
+body {
     margin: 0px;
 }
-.top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0px;
-    z-index: 1;
-    position: sticky;
-    top: 0;
 
-}
-.top-bar a{
-    text-decoration: none;
-}
-.grid-info{
+.grid-info {
     display: grid;
     grid-template-columns: 40% 60%;
     height: 92vh;
 
 }
-.picture img{
+
+.picture img {
     height: 80vh;
     margin: 50px;
-    border: solid 3px rgb(71, 71, 71);;
- }
+    border: solid 3px rgb(71, 71, 71);
+}
 
- .title{
+.title {
     display: flex;
     justify-content: center;
     font-size: 50px;
     font-family: 'Times New Roman', Times, serif;
     color: rgb(71, 71, 71);
- }
+}
 
-.text{
+.text {
     height: 60vh;
     display: flex;
     justify-content: center;
@@ -42,25 +31,4 @@ body{
     font-size: 22px;
     font-family: 'Times New Roman', Times, serif;
     color: rgb(71, 71, 71);
-}
-
-
-.name {
-    padding: 20px;
-    margin: 0px;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(71, 71, 71);
-        text-decoration: none;
-}
-
-.nav h2 {
-    padding: 20px;
-    margin: 0px;
-    display: inline-flex;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(71, 71, 71);
-}
-
-.nav a{
-    text-decoration: none;
 }

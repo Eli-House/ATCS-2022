@@ -2,51 +2,25 @@ body {
     margin: 0px;
 }
 
-.top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0px;
-    z-index: 1;
-    position: sticky;
-    top: 0;
-
-}
-
 .grid-top {
     display: grid;
     grid-template-rows: 100%;
     height: 8vh;
 }
 
-.grid-pictures{
-    display: grid;
-    grid-template-rows: 33% 33% 33%;
-    grid-template-columns: 50% 50%;
-    height: 92vh;
+.experiences {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+
 }
 
-.top-bar a {
-    text-decoration: none;
-}
-
-
-.name {
-    padding: 20px;
-    margin: 0px;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(71, 71, 71);
-    text-decoration: none;
-}
-
-.nav h2 {
-    padding: 20px;
-    margin: 0px;
-    display: inline-flex;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(71, 71, 71);
-}
-
-.nav a {
-    text-decoration: none;
+.pictures img {
+    vertical-align: middle;
+    width: 50vh;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    border: solid 2px rgb(71, 71, 71);
 }

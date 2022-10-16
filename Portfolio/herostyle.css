@@ -1,0 +1,47 @@
+body {
+    margin: 0px;
+    background-image: url("cover.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.grid{
+    display: grid;
+    grid-template-rows: 8% 92%;
+    height: 100vh;
+
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    height: 100%;
+
+}
+
+.center-text {
+    margin: 0px;
+    padding: 0px;
+    font-size: 50px;
+}
+
+.hero-text h2 {
+    font-weight: 300;
+    margin: 0px;
+    padding: 0px;
+}
+
+.name {
+    color: white;
+}
+
+.nav h2 {
+    color: white;
+}
