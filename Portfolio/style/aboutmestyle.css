@@ -1,0 +1,16 @@
+.picture img {
+    height: 80vh;
+    margin: 10px;
+    border: solid 2px rgb(71, 71, 71);
+}
+
+.text {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(71, 71, 71);
+    margin: 12px;
+}
