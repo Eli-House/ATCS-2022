@@ -114,8 +114,8 @@ class Twitter:
 
     def follow(self):
         follow = input("Enter the username of the person you want to follow:\n")
-        users = db_session.query(User.username).first()
-        following = db_session.query(Follower.following_id).where(self.current_user == Follower.follower_id).first()
+        users = db_session.query(User.username)
+        following = db_session.query(Follower.following_id).where(self.current_user == Follower.follower_id)
         real_user = True
         already_following = False
 
@@ -127,7 +127,7 @@ class Twitter:
 
         if already_following == False:
             for usernames in users:
-                if follow == str(usernames):
+                if follow == usernames:
                     print("you are now folling " + follow)
                     new_follower = Follower(self.current_user, follow)
                     db_session.add(new_follower)
@@ -154,8 +154,8 @@ class Twitter:
             for usernames in users:
                 if unfollow == str(usernames):
                     print("you are now unfolling " + unfollow)
-                    unfollower = Follower(self.current_user, unfollow)
-                    db_session.delete(unfollower)
+                    unfollowing = db_session.query(Follower.id).where(Follower.follower_id == unfollow)
+                    db_session.delete(unfollowing)
                     db_session.commit()
                     real_user = True
                     break
@@ -195,7 +195,9 @@ class Twitter:
     people the user follows
     """
     def view_feed(self):
-        pass
+        
+        following = db_session.query(Follower).where(Follower.follower_id == self.current_user).limit(5)
+        self.print_tweets(following)
 
     def search_by_user(self):
         users = db_session.query(User.username)
@@ -208,7 +210,7 @@ class Twitter:
                 tweets = db_session.query(Tweet).where(Tweet.username == uname)
                 break
         if real_user == True:
-            self.print_tweets(uname)
+            self.print_tweets(tweets)
         if real_user == False:
             print("No user has that name")
 
