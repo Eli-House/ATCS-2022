@@ -91,6 +91,7 @@ class Twitter:
     
     def logout(self):
         self.current_user = None
+        self.startup()
 
     """
     Allows the user to login,  
@@ -119,15 +120,19 @@ class Twitter:
         real_user = True
         already_following = False
 
-        for people in following:
-            if follow == people:
+        for user in following:
+            user = str(user)[2:]
+            user = user[:len(user)-3]
+            if follow == user:
                 print("You already follow " + follow)
-                already_following == True
+                already_following = True
                 break
-
+            
         if already_following == False:
-            for usernames in users:
-                if follow == usernames:
+            for users.username in users:
+                user = str(users.username)[2:]
+                user = user[:len(user)-3]
+                if follow == user:
                     print("you are now folling " + follow)
                     new_follower = Follower(self.current_user, follow)
                     db_session.add(new_follower)
@@ -140,30 +145,19 @@ class Twitter:
 
     def unfollow(self):
         unfollow = input("Enter the username of the person you want to unfollow:\n")
-        users = db_session.query(User.username).first()
-        following = db_session.query(Follower.following_id).where(self.current_user == Follower.follower_id).first()
-        real_user = True
-        already_following = True
-
-        for people in following:
-            if unfollow == people:
-                already_following == False
+        user = db_session.query(User).where(User.username==unfollow).first()
+        following = db_session.query(Follower).where(Follower.follower_id==self.current_user).all()
+        follow = False
+        for follower in following:
+            if user.username == follower.following_id:
+                print("You are longer following " + user)
+                db_session.delete(follower)
+                db_session.commit()
+                follow = True
                 break
-        
-        if already_following == True:
-            for usernames in users:
-                if unfollow == str(usernames):
-                    print("you are now unfolling " + unfollow)
-                    unfollowing = db_session.query(Follower.id).where(Follower.follower_id == unfollow)
-                    db_session.delete(unfollowing)
-                    db_session.commit()
-                    real_user = True
-                    break
-        else:
-            print("You don't follow " + unfollow)
 
-        if real_user == False:
-            print("This user does not exits")
+        if follow == False:
+            print("You dont follow " + user)
 
     def tweet(self):
         content = input("Enter the message you want to tweet: ")
@@ -175,19 +169,19 @@ class Twitter:
         for hashtag in tags.split():
             new_tag = True
             for made_tag in tag:
-                if hashtag == made_tag:
+                if hashtag == made_tag.content:
+                    new_tweet.tags.append(made_tag)
                     new_tag = False
             if new_tag == True:
                 create_tag = Tag(hashtag) 
-                db_session.add(create_tag)
+                new_tweet.tags.append(create_tag)
+
         db_session.add(new_tweet)
         db_session.commit()
      
     def view_my_tweets(self):
         tweets = db_session.query(Tweet).where(Tweet.username == self.current_user)
-
-        for post in tweets:
-            self.print_tweets(post)
+        self.print_tweets(tweets)
             
     
     """
@@ -195,17 +189,17 @@ class Twitter:
     people the user follows
     """
     def view_feed(self):
-        
-        following = db_session.query(Follower).where(Follower.follower_id == self.current_user).limit(5)
-        self.print_tweets(following)
+        pass
 
     def search_by_user(self):
         users = db_session.query(User.username)
         uname = input("Enter a username: \n")
         real_user = False
         
-        for usernames in users:
-            if uname == usernames:
+        for users.username in users:
+            user = str(users.username)[2:]
+            user = user[:len(user)-3]
+            if uname == user:
                 real_user = True
                 tweets = db_session.query(Tweet).where(Tweet.username == uname)
                 break
@@ -225,8 +219,10 @@ class Twitter:
         init_db()
 
         print("Welcome to ATCS Twitter!")
-        self.startup()
-        active = True
+        while self.current_user == None:
+            self.startup()
+            active = True
+
         while active == True:
             self.print_menu()
             option = int(input(""))
